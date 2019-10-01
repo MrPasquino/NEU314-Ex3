@@ -29,4 +29,34 @@ function getcolors(filename)
     display(greenvals)
     println("Blue Values")
     display(bluevals)
+    println("Reset with git reset--mixed")
+end
+
+image2 = zeros(360,640,3)
+image2[:,:,1] = elcapitan[:,:,2]
+image2[:,:,2] = elcapitan[:,:,3]
+image2[:,:,3] = elcapitan[:,:,1]
+
+figure(figsize = [7,5])
+axis("off")
+subplot(1,2,1)
+title("El Capitan-Normal Coloration")
+imshow(elcapitan)
+subplot(1,2,2)
+title("El Capitan-Altered Coloration")
+imshow(image2)
+
+
+
+function cyclered(filename, cycle)
+    file = imread(filename)
+    filecycled = file
+    for i=1:length(file[:,1,1])
+        if (i-cycle) <= 0
+            filecycled[end+(i-cycle),:,1] = file[i,:,1]
+        elseif (i-cycle) > 0
+            filecycled[i-cycle,:,1] = file[i,:,1]
+        end
+    end
+    imshow(filecycled)
 end
