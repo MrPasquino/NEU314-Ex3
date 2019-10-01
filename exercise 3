@@ -29,4 +29,5 @@ function getcolors(filename)
     display(greenvals)
     println("Blue Values")
     display(bluevals)
+    println("BUG BUG BUG")
 end
