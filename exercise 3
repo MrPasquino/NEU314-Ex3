@@ -1,0 +1,32 @@
+#exercise 3
+using PyPlot; pygui(true);   # We'll use the plotting package PyPlot and will plot outside the plots pane
+using JLD;
+
+elcapitan = imread("el-capitan.png")
+imshow(elcapitan)
+size(elcapitan)
+
+"""
+getcolors--displays an image and outputs the matrices of the red, green, and blue values
+
+Args:
+    filename (str): The string, with file extension, of the file you wish to display and extract RGB values of
+Returns:
+    Image (img): Figure of the image
+    redvals (array): Matrix of the red values of the image
+    greenvals (array): Matrix of the green values of the image
+    bluevals (array): Matrix of the blue values of the image
+"""
+function getcolors(filename)
+    file = imread(filename)
+    imshow(file)
+    redvals = file[:,:,1]
+    greenvals = file[:,:,2]
+    bluevals = file[:,:,3]
+    println("Red Values")
+    display(redvals)
+    println("Green Values")
+    display(greenvals)
+    println("Blue Values")
+    display(bluevals)
+end
