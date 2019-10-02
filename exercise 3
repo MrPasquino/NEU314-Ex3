@@ -45,12 +45,24 @@ imshow(elcapitan)
 subplot(1,2,2)
 title("El Capitan-Altered Coloration")
 imshow(image2)
+"""
+cyclered-displays an image where the red values have been
+shifted up a certain number of rows
 
+Args:
+    filename (str): a string input, with extension, that
+    specifies what image you wish to cycle the red channel
+    cycle (int): a integer which specifies the number of
+    rows the red channels will be moved up by.
+Returns:
+    An image of the file where the red channel has been
+    moved up by a specified number of rows.
+"""
 
 
 function cyclered(filename, cycle)
     file = imread(filename)
-    filecycled = file
+    filecycled = copy(file)
     for i=1:length(file[:,1,1])
         if (i-cycle) <= 0
             filecycled[end+(i-cycle),:,1] = file[i,:,1]
